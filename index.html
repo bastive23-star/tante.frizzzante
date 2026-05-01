@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tante Frizzzante – Handmade Suncatcher</title>
   <meta name="description" content="Handgemachte Suncatcher – brich das Licht der Sonne und bring Dolce Vita ins Zuhause." />
+  <meta name="color-scheme" content="light only" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -31,8 +32,13 @@
       --radius:     14px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; color-scheme: light; }
     body { font-family: 'Inter', sans-serif; background: var(--surface); color: var(--text); overflow-x: hidden; line-height: 1.5; }
+    /* Force light mode — this is a light-only design */
+    @media (prefers-color-scheme: dark) {
+      html { background: var(--hero-bg); }
+      body, input, button, select, textarea { background-color: initial; color: initial; }
+    }
 
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--surface-1); }
